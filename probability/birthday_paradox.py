@@ -30,6 +30,23 @@ class Solution(object):
 
         return 1.0 - 2.0 ** prob
 
+class BirthdayParadoxImage(object):
+    def showCurve(self):
+        x = [i + 1 for i in range(365)]
+        y = []
+
+        prob = 0.0
+        for n in x:
+            prob += math.log((365 - n + 1) / 365.0, 2)
+
+            current_prob = 1.0 - 2.0 ** prob
+            y.append(current_prob)
+
+        import matplotlib.pyplot as plt 
+        plt.title('probability of at least two people have the same birthday')
+        plt.plot(x, y, color='blue', lw=2)
+        plt.show()
+
 if __name__ == '__main__':
     so = Solution()
 
@@ -39,3 +56,7 @@ if __name__ == '__main__':
     print so.computeProb(364), ', probability of 364 people'
     print so.computeProb(365), ', probability of 365 people'
     print so.computeProb(400), ', probability of 400 people'
+
+    print 'show curve'
+    image = BirthdayParadoxImage()
+    image.showCurve()

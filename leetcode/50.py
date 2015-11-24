@@ -22,6 +22,8 @@ class Solution(object):
 
         Time: O(1) <= O(64) <= O(bits(n))
         Space: O(1)
+
+        Issue: how to handle this problem is x < 0
         """
 
         if x == 0:
