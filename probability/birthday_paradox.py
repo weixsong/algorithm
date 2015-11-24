@@ -3,6 +3,8 @@
 Given a number of people, compute the probability of at least two people have the same birthday
 """
 
+import math
+
 class Solution(object):
     def computeProb(self, n):
         """
@@ -14,7 +16,7 @@ class Solution(object):
         when n <= 365, we compute the probability of that these people do not have same birthday,
         1th people have 365 choice, 2nd people has 364 choice, 3rd people has 363 choice, etc.
 
-        Issue: precision Issue for float
+        Using log operation to avoid float multipy overflow
         """
 
         assert n > 0, 'n should > 0'
@@ -22,11 +24,11 @@ class Solution(object):
         if n > 365:
             return 1.0
 
-        prob = 1.0
+        prob = 0.0
         for i in xrange(n):
-            prob *= (365 - i) / 365.0
+            prob += math.log((365 - i) / 365.0, 2)
 
-        return 1.0 - prob
+        return 1.0 - 2.0 ** prob
 
 if __name__ == '__main__':
     so = Solution()
