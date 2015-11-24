@@ -1,34 +1,10 @@
 #!/usr/bin/env python
+"""
+Implement pow(x, n).
+"""
 
-class Power(object):
-    """
-    Power contains some static function that could do quick bit operation.
-    """
-
-    @staticmethod
-    def isPowerOfTwo(n):
-        """
-        Is n a power of 2.
-
-        :type n: int
-        :rtype: bool
-
-        Given an integer, write a function to determine if it is a power of two.
-
-        Idea: bit operation, if n is power of 2, then it bit representation only contains one 1, 
-        then n & (n - 1) would be 0, otherwise n & (n - 1) != 0
-
-        Time: O(1)
-        Space: O(1)
-        """
-
-        if n == 0:
-            return False
-
-        return n & (n - 1) == 0
-
-    @staticmethod
-    def pow(x, n):
+class Solution(object):
+    def pow(self, x, n):
         """
         Implement pow(x, n).
 
@@ -63,5 +39,16 @@ class Power(object):
                 res *= x
 
             idx <<= 1
+            x *= x
 
         return res
+
+if __name__ == '__main__':
+    so = Solution()
+
+    print so.pow(0, 0), ', 0'
+    print so.pow(2, 5), ', 32'
+    print so.pow(4, 4), ', 256'
+    print so.pow(3.5, 6), ', 1838.265625'
+    print so.pow(1, 99999999999), ', 1'
+    print so.pow(5, 8), ', 390625'
