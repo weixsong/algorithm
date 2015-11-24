@@ -52,6 +52,7 @@ if __name__ == '__main__':
 
     print so.computeProb(20), ', probability of 20 people'
     print so.computeProb(23), ', probability of 23 people'
+    print so.computeProb(30), ', probability of 30 people'
     print so.computeProb(40), ', probability of 40 people'
     print so.computeProb(364), ', probability of 364 people'
     print so.computeProb(365), ', probability of 365 people'
