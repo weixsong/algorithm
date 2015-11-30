@@ -12,7 +12,6 @@ class TreeNode(object):
 class Solution(object):
     """
     Inorder traverse.
-
     """
 
     def convert(self, tree):
