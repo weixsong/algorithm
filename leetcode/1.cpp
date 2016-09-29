@@ -44,6 +44,44 @@ public:
     }
 };
 
+// using hash table
+class Solution2 {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> indices;
+        vector<int> res;
+
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (indices.find(nums[i]) != indices.end() && nums[i] * 2 == target)
+            {
+                res.push_back(indices.find(nums[i])->second);
+                res.push_back(i);
+
+                return res;
+            }
+
+            indices[nums[i]] = i;
+        }
+
+        for (int i = 0; i < nums.size(); i++)
+        {
+            int n1 = nums[i];
+            int n2 = target - n1;
+
+            if (indices.find(n2) != indices.end() && n1 != n2)
+            {
+                res.push_back(indices[n1]);
+                res.push_back(indices[n2]);
+
+                return res;
+            }
+        }
+
+        return res;
+    }
+};
+
 int main()
 {
     vector<int> nums = { 32,71,12,45,26,80,53,33 };
