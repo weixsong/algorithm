@@ -21,6 +21,8 @@ class Solution(object):
     """
     sort the nums, and record the original indices
     then search from left and right
+
+    O(nlogn)
     """
 
     def twoSum(self, nums, target):
@@ -48,6 +50,11 @@ class Solution(object):
 solution 2: by hash table
 '''
 class Solution(object):
+    """
+    O(n)
+    using hash table to lookup another number in this hash table given another number,
+    if another number is in hash table, then we could get number indices.
+    """
     def twoSum(self, nums, target):
         """
         :type nums: List[int]
@@ -59,6 +66,7 @@ class Solution(object):
         for i in xrange(len(nums)):
             if nums[i] in indices and nums[i] * 2 == target:
                 return [indices[nums[i]], i]
+
             indices[nums[i]] = i
 
         for i in xrange(len(nums)):
