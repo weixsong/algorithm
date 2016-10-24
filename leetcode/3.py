@@ -11,6 +11,10 @@ Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer 
 """
 
 class Solution(object):
+    """
+    O(n)
+    using hashset to record which char is already covered.
+    """
     def lengthOfLongestSubstring(self, s):
         """
         :type s: str
