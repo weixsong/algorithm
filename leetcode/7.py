@@ -37,4 +37,3 @@ class Solution(object):
             reversed = -reversed
 
         return reversed
-
