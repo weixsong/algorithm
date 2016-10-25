@@ -56,6 +56,40 @@ class Solution(object):
         return ''.join(res)
 
 
+class Solution(object):
+    def convert(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+
+        if numRows == 1:
+            return s
+
+        cycle = 2 * (numRows - 1)
+        res = []
+        for i in xrange(numRows):
+            if i >= len(s):
+                break
+
+            idx = i
+            step1 = cycle - 2 * i
+            step2 = cycle - step1
+            while idx < len(s):
+                res.append(s[idx])
+                if step1 == 0 or step2 == 0:
+                    idx += cycle
+                    continue
+
+                idx += step1
+                if idx < len(s):
+                    res.append(s[idx])
+                    idx += step2
+
+        return ''.join(res)
+
+
 if __name__ == '__main__':
     so = Solution()
     s = 'PAYPALISHIRING'
