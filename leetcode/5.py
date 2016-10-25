@@ -78,6 +78,7 @@ class Solution:
     """
     O(n)
     space: O(n)
+    this solution contains some trick
     """
     # @param {string} s
     # @return {string}
