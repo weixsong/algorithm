@@ -43,7 +43,7 @@ class Solution(object):
             else:
                 end -= 1
 
-        return [0, 1]
+        return False
 
 
 class Solution2(object):
@@ -74,6 +74,30 @@ class Solution2(object):
                 return table[key][0], table[key][1]
             elif other in table:
                 return table[key][0], table[other][0]
+
+        return False
+
+
+class Solution3(object):
+    """
+    Use Hash table to remember the key, value pair of <other number, index of current number>
+    other = target - num1
+    Time: O(n)
+    Space: O(n)
+    """
+
+    def twoSum(self, nums, target):
+        if len(nums) <= 1:
+            return False
+
+        buff_dict = {}  # number we want and index of current number
+        for idx, num in enumerate(nums):
+            if num in buff_dict:
+                return [buff_dict[num], idx]
+            else:
+                buff_dict[target - num] = idx
+
+        return False
 
 
 if __name__ == '__main__':
