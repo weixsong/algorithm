@@ -15,12 +15,14 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 """
 
+
 class Solution(object):
     """
-    Sort the array, and search from front and end
+    Sort the array, and search from front and end, narrow down to middle
     Time: O(nlogn)
     Space: O(n)
     """
+
     def twoSum(self, nums, target):
         """
         :type nums: List[int]
@@ -44,9 +46,46 @@ class Solution(object):
         return [0, 1]
 
 
+class Solution2(object):
+    """
+    Use Hash table to remember the index of number, then could easy find the other number
+    other = target - num1
+    Time: O(n)
+    Space: O(n)
+    """
+
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+
+        table = {}
+        for idx, num in enumerate(nums):
+            if num not in table:
+                table[num] = []
+
+            table[num].append(idx)
+
+        for key in table:
+            other = target - key
+            if other == key:
+                return table[key][0], table[key][1]
+            elif other in table:
+                return table[key][0], table[other][0]
+
+
 if __name__ == '__main__':
     nums = [2, 7, 11, 15]
     target = 9
 
     so = Solution()
+    print(so.twoSum(nums, target))
+
+    so = Solution2()
+    print(so.twoSum(nums, target))
+
+    nums = [3, 2, 4]
+    target = 6
     print(so.twoSum(nums, target))
