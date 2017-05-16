@@ -122,6 +122,9 @@ class Solution2(object):
 
 
 class Solution3(object):
+    """
+    This is the best solution
+    """
 
     def convert(self, s, numRows):
         """
