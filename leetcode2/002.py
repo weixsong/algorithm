@@ -28,12 +28,6 @@ class Solution(object):
         :rtype: ListNode
         """
 
-        if l1 is None:
-            return l2
-
-        if l2 is None:
-            return l1
-
         carrier = 0
         head = ListNode(None)
         p = head
@@ -64,6 +58,9 @@ class Solution(object):
         if carrier != 0:
             node = ListNode(carrier)
             p.next = node
-            p = node
 
         return head.next
+
+
+if __name__ == '__main__':
+    so = Solution()
