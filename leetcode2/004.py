@@ -43,6 +43,7 @@ class Solution(object):
             return (a + b) / 2.0
 
     def findk(self, nums1, l1, r1, nums2, l2, r2, k):
+        """find k, start from 1"""
         if r1 - l1 > r2 - l2:
             return self.findk(nums2, l2, r2, nums1, l1, r1, k)
 
