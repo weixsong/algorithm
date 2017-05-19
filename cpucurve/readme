@@ -1,0 +1,8 @@
+author: watkinsong
+email:  watkinsong@163.com
+
+This is a steady version of cpu sin() curve.
+To compile this, please use "cd src" command and then run makefile, then u will get a cpu output.
+Run cpu and open system monitor, u can observe the cpu busy curve. Run it by "./cpu"
+
+IMPORTANT: here the program i wrote used cpu Kernel 0x0003, make sure your cpu has at least 4 kernels, if not, change the kernel number in the code.
