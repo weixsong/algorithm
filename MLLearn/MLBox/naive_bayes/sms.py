@@ -103,4 +103,3 @@ if '__main__' == __name__:
         ax.legend()
 
     plt.show()
-

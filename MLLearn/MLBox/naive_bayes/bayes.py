@@ -33,9 +33,13 @@ class NaiveBayesClassifier(object):
             cls_cnt[cls] += 1
 
         # 计算类型概率
+        # this is the probability of: P(c)
         cls_probs = {k: v/len(classes) for k, v in cls_cnt.items()}
 
         # 计算不同类型的条件概率
+        # P(x|c)
+        # each feature is independent from each other. so P(x1,x2,x3|c)=P(x1|c)P(x2|c)P(c3|c)
+        # Log(P(x1,x2,x3|c)) = sum(log(P(x1|c)) + log(P(x2|c)) + log(P(c3|c)))
         cond_probs = {}
         dataset = np.array(dataset)
         for cls, sub_dataset in sub_datasets.items():
@@ -54,4 +58,3 @@ class NaiveBayesClassifier(object):
             cond_prob_vect = cond_probs[cls]
             pred_probs[cls] = np.sum(cond_prob_vect*doc_vect) + np.log(cls_prob)
         return max(pred_probs, key=pred_probs.get)
-
