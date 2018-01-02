@@ -25,3 +25,29 @@ class Solution(object):
             self.invertTree(root.right)
             
         return root
+
+
+class Solution2(object):
+    def invertTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        
+        if root == None:
+            return root
+        
+        queue = [root]
+        
+        while len(queue) != 0:
+            front = queue.pop(0)
+            if front.left or front.right:
+                front.left, front.right = front.right, front.left
+                
+            if front.left:
+                queue.append(front.left)
+                
+            if front.right:
+                queue.append(front.right)
+            
+        return root
