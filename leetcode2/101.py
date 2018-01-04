@@ -9,6 +9,7 @@
 #         self.right = None
 
 class Solution(object):
+    '''layer wise traverse'''
     def isSymmetric(self, root):
         """
         :type root: TreeNode
