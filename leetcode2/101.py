@@ -60,7 +60,7 @@ class Solution2(object):
         :type root: TreeNode
         :rtype: bool
         """
-        
+
         if root == None:
             return True
 
@@ -70,7 +70,7 @@ class Solution2(object):
         while len(stack1) != 0 and len(stack2) != 0:
             t1 = stack1.pop(0)
             t2 = stack2.pop(0)
-            
+
             if t1 == None and t2 == None:
                 continue
             elif t1 != None and t2 != None:
@@ -87,4 +87,5 @@ class Solution2(object):
 
         if len(stack1) != len(stack2):
             return False
+
         return True
