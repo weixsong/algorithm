@@ -21,6 +21,7 @@ class Solution(object):
     Sort the array, and search from front and end, narrow down to middle
     Time: O(nlogn)
     Space: O(n)
+    Not very good, because need to sort the array and record the value index in un-sorted array
     """
 
     def twoSum(self, nums, target):
