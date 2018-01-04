@@ -48,6 +48,13 @@ class Solution(object):
 
 
 class Solution2(object):
+    """
+    use two queues, 
+    one for left half tree, other for right half tree.
+    queue 1, enqueue from left to right,
+    queue 2, enqueue from right to left,
+    then two queue should be same.
+    """
     def isSymmetric(self, root):
         """
         :type root: TreeNode
@@ -71,9 +78,9 @@ class Solution2(object):
                     return False
 
                 stack1.append(t1.left)
-                stack2.append(t2.right)
-
                 stack1.append(t1.right)
+
+                stack2.append(t2.right)
                 stack2.append(t2.left)
             else:
                 return False
