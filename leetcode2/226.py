@@ -6,6 +6,7 @@
 #         self.right = None
 
 class Solution(object):
+    '''recursive method'''
     def invertTree(self, root):
         """
         :type root: TreeNode
@@ -28,6 +29,7 @@ class Solution(object):
 
 
 class Solution2(object):
+    '''non-recursive method: layer wise traverse'''
     def invertTree(self, root):
         """
         :type root: TreeNode
