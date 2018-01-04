@@ -68,8 +68,8 @@ class Solution2(object):
         stack2 = [root.right]
 
         while len(stack1) != 0 and len(stack2) != 0:
-            t1 = stack1.pop()
-            t2 = stack2.pop()
+            t1 = stack1.pop(0)
+            t2 = stack2.pop(0)
             
             if t1 == None and t2 == None:
                 continue
