@@ -21,6 +21,7 @@ class Solution(object):
     Sort the array, and search from front and end, narrow down to middle
     Time: O(nlogn)
     Space: O(n)
+    Not very good, because need to sort the array and record the value index in un-sorted array
     """
 
     def twoSum(self, nums, target):
@@ -85,18 +86,20 @@ class Solution3(object):
     Time: O(n)
     Space: O(n)
     """
-
     def twoSum(self, nums, target):
-        if len(nums) <= 1:
-            return False
-
-        buff_dict = {}  # number we want and index of current number
-        for idx, num in enumerate(nums):
-            if num in buff_dict:
-                return [buff_dict[num], idx]
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        
+        table = {}
+        for idx, v in enumerate(nums):
+            if v in table:
+                return table[v], idx
             else:
-                buff_dict[target - num] = idx
-
+                table[target - v] = idx
+            
         return False
 
 
